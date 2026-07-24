@@ -88,7 +88,7 @@ if prompt := st.chat_input("Ask about your documentation..."):
                         # Get backend URL from env, or default to local if not set
                         base_url = (os.getenv("BACKEND_URL") or "").strip().strip('"').strip("'")
                         if not base_url:
-                            base_url = "http://localhost:8000"
+                            base_url = "http://localhost:8001"
                         url = f"{base_url}/query"
                         payload = {"q": prompt, "thread_id": st.session_state.session_id}
                         response = requests.post(url, json=payload, timeout=60)

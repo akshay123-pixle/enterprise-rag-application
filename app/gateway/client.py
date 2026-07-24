@@ -22,9 +22,12 @@ GATEWAY_CONFIG = {
     ]
 }
 
+# Use saved config slug if specified (required when block_inline_config is enabled in Portkey)
+PORTKEY_CONFIG = settings.PORTKEY_SAVED_CONFIG_ID or GATEWAY_CONFIG
+
 portkey_client = Portkey(
     api_key=settings.PORTKEY_API_KEY,
-    config=GATEWAY_CONFIG
+    config=PORTKEY_CONFIG
 )
 
 
@@ -46,7 +49,7 @@ def get_langchain_llm(feature: str = "rag") -> ChatOpenAI:
         temperature=0,
         default_headers=createHeaders(
             api_key=settings.PORTKEY_API_KEY,
-            config=GATEWAY_CONFIG,
+            config=PORTKEY_CONFIG,
             metadata={
                 "feature": feature,
                 "_user": "rag-system",
