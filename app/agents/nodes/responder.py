@@ -61,7 +61,7 @@ def generate_node(state: AgentState):
         try:
             response = portkey_client.chat.completions.create(
                 messages=[{"role": "user", "content": prompt}],
-                model=f"@{settings.GROQ_SLUG}/llama-3.3-70b-versatile",
+                model=f"@{settings.GROQ_SLUG}/{settings.GROQ_MODEL}",
                 temperature=0.1
             )
             content = response.choices[0].message.content

@@ -5,8 +5,7 @@ from langchain_groq import ChatGroq
 from app.config import settings
 
 # Portkey-backed LLM: fallback + cache + retry — same .invoke() interface as ChatGroq
-# llm = get_langchain_llm(feature="planner")
-llm=ChatGroq(api_key=settings.GROQ_API_KEY,model=settings.GROQ_MODEL)
+llm = get_langchain_llm(feature="planner")
 # state = {
 #     "messages": [
 #         {
