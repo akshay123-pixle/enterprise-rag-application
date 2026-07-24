@@ -10,3 +10,7 @@ streamlit run .\ui\app.py
 
 backend
 uvicorn app.main:app --reload --port 8000
+
+
+VERY Important resource link->>
+https://docs.google.com/document/d/1wMPQL2NJTzT70GLBVYr3hKrObCmYrwhwvTgoEb0PLWk/edit?tab=t.0
